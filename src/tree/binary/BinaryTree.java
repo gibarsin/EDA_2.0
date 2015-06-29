@@ -26,7 +26,7 @@ public class BinaryTree<T> {
     }
 
     public static <T> boolean checkPostOrder(BinaryTree<T> tree, List<T> values) {
-        if (tree == null || values == null) {
+        if (values == null) {
             throw new IllegalArgumentException();
         }
 
