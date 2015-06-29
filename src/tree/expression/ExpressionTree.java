@@ -16,7 +16,7 @@ public class ExpressionTree {
         Iterator<String> it = prefix.iterator();
         Node root = buildTreeRec(it);
 
-        if(it.hasNext()) {
+        if (it.hasNext()) {
             throw new IllegalArgumentException();
         }
 
@@ -24,13 +24,13 @@ public class ExpressionTree {
     }
 
     private static Node buildTreeRec(Iterator<String> it) {
-        if(!it.hasNext()) {
+        if (!it.hasNext()) {
             throw new IllegalArgumentException();
         }
         String token = it.next();
         Operator op = getOperator(token);
 
-        if(op == null) {
+        if (op == null) {
             return new ValueNode(Double.valueOf(token));
         } else {
             Node left = buildTreeRec(it);
@@ -43,10 +43,10 @@ public class ExpressionTree {
     public static Node buildTreeFromPosfix(List<String> tokens) {
         Deque<Node> stack = new LinkedList<Node>();
 
-        for(String token : tokens) {
+        for (String token : tokens) {
             Operator operator = getOperator(token);
 
-            if(operator == null) {
+            if (operator == null) {
                 stack.push(new ValueNode(Double.valueOf(token)));
             } else {
                 Node op2 = stack.pop();
@@ -55,7 +55,7 @@ public class ExpressionTree {
             }
         }
         Node root = stack.pop();
-        if(!stack.isEmpty()) {
+        if (!stack.isEmpty()) {
             throw new IllegalArgumentException();
         }
 
@@ -63,7 +63,7 @@ public class ExpressionTree {
     }
 
     private static Operator getOperator(String token) {
-        switch(token) {
+        switch (token) {
             case "+":
                 return Product.getInstance();
             case "-":

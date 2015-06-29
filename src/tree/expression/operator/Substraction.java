@@ -8,7 +8,7 @@ public class Substraction implements Operator {
     }
 
     public static Substraction getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Substraction();
         }
         return instance;

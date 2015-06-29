@@ -8,7 +8,7 @@ public class Division implements Operator {
     }
 
     public static Division getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Division();
         }
         return instance;

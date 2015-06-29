@@ -2,10 +2,10 @@ package bag;
 
 public interface Bag<T> {
 
-    public void add(T elem);
+    void add(T elem);
 
-    public void remove(T elem);
+    void remove(T elem);
 
-    public void print();
+    void print();
 }
 

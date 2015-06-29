@@ -1,12 +1,12 @@
 package list.circular;
 
 public interface CircularList<T> {
-    public void addLast(T elem);
+    void addLast(T elem);
 
-    public T getNext();
+    T getNext();
 
-    public void reset();
+    void reset();
 
-    public CircularList<T> split();
+    CircularList<T> split();
 }
 

@@ -8,7 +8,7 @@ public class Sum implements Operator {
     }
 
     public static Sum getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Sum();
         }
         return instance;

@@ -8,7 +8,7 @@ public class Product implements Operator {
     }
 
     public static Product getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Product();
         }
         return instance;

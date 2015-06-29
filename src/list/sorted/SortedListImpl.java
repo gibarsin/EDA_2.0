@@ -18,7 +18,7 @@ public class SortedListImpl<T> implements SortedList<T> {
     }
 
     private Node<T> addRec(Node<T> node, Node<T> prev, T value) {
-        if(node == null || cmp.compare(node.head, value) > 0) {
+        if (node == null || cmp.compare(node.head, value) > 0) {
             Node<T> newNode = new Node<T>(value, prev, lastAdded, node);
             lastAdded = newNode;
 
@@ -31,13 +31,13 @@ public class SortedListImpl<T> implements SortedList<T> {
 
     @Override
     public void undo() {
-        if(lastAdded != null) {
-            if(lastAdded.prev != null) {
+        if (lastAdded != null) {
+            if (lastAdded.prev != null) {
                 lastAdded.prev.tail = lastAdded.tail;
             } else { //It is the first element of the list
                 first = first.tail;
             }
-            if(lastAdded.tail != null) {
+            if (lastAdded.tail != null) {
                 lastAdded.tail.prev = lastAdded.prev;
             }
             lastAdded = lastAdded.last;
@@ -48,7 +48,7 @@ public class SortedListImpl<T> implements SortedList<T> {
     public void print() {
         Node<T> node = first;
 
-        while(node != null) {
+        while (node != null) {
             System.out.print(node.head + " ");
             node = node.tail;
         }

@@ -9,15 +9,15 @@ public class BagImpl<T> implements Bag<T> {
     }
 
     private Node<T> addRec(Node<T> curr, T elem) {
-        if(curr == null) {
+        if (curr == null) {
             return new Node(elem);
         }
-        if(curr.elem.equals(elem)) {
+        if (curr.elem.equals(elem)) {
             curr.count++;
             return curr;
         }
         curr.tail = addRec(curr.tail, elem);
-        if(curr.tail.elem.equals(elem) && curr.tail.count >= curr.count) {
+        if (curr.tail.elem.equals(elem) && curr.tail.count >= curr.count) {
             Node<T> ret = curr.tail;
             curr.tail = curr.tail.tail;
             ret.tail = curr;
@@ -33,11 +33,11 @@ public class BagImpl<T> implements Bag<T> {
     }
 
     private Node<T> removeRec(Node<T> curr, T elem) {
-        if(curr == null) {
+        if (curr == null) {
             return null;
-        } else if(curr.elem.equals(elem)) {
+        } else if (curr.elem.equals(elem)) {
             curr.count--;
-            if(curr.count == 0) {
+            if (curr.count == 0) {
                 return curr.tail;
             }
             return relocateRec(curr, curr.tail);
@@ -48,9 +48,9 @@ public class BagImpl<T> implements Bag<T> {
     }
 
     private Node<T> relocateRec(Node<T> relocated, Node<T> curr) {
-        if(curr == null) {
+        if (curr == null) {
             return relocated;
-        } else if(curr.count <= relocated.count) {
+        } else if (curr.count <= relocated.count) {
             relocated.tail = curr;
 
             return relocated;
@@ -64,7 +64,7 @@ public class BagImpl<T> implements Bag<T> {
     public void print() {
         Node<T> curr = first;
 
-        while(curr != null) {
+        while (curr != null) {
             System.out.print(curr.elem + "(" + curr.count + ") ");
             curr = curr.tail;
         }
